@@ -1,0 +1,127 @@
+Q3
+1.git stash 
+--> Saved working directory and index state WIP on branchforStash: 1137036 commit three
+
+2.git stash pop  
+--> On branch branchforStash
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Sample.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Task.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (56c7dcd5453291f67b59af951240da76b3216d8d)
+
+3.git stash drop 
+--> Dropped refs/stash@{0} (bdc236a3543216c201f99a1d4ff6e6dd2ef397c0)
+
+4.git stash apply 
+--> No stash entries found.
+-->On branch branchforStash
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Sample.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Task.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Q4
+1.git pull
+--> Updating c889dee..2a509b7
+Fast-forward
+ README.md  | 11 +++++++++++
+ Sample.txt |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 README.md
+
+2.git rebase
+--> Successfully rebased and updated refs/heads/main.
+
+3.git push
+-->  git push
+Enumerating objects: 2, done.
+Counting objects: 100% (2/2), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 455 bytes | 455.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kirankumarramola/Task.git
+   2a509b7..759250f  main -> main
+
+
+Q5
+1.git reflog -- list out the records of the updated tips of branches when committed in the local repository
+-->
+759250f (HEAD -> main, origin/main) HEAD@{0}: pull: Merge made by the 'ort' strategy.
+4e49b19 HEAD@{1}: rebase (finish): returning to refs/heads/main
+4e49b19 HEAD@{2}: rebase (pick): Create README.md
+27a43e8 (origin/branch2, branch2) HEAD@{3}: rebase (start): checkout branch2
+2a509b7 HEAD@{4}: pull: Fast-forward
+c889dee (origin/Samplebranch, Samplebranch) HEAD@{5}: checkout: moving from branchforStash to main
+8402f8a (branchforStash) HEAD@{6}: commit: commit
+1137036 HEAD@{7}: reset: moving to HEAD
+1137036 HEAD@{8}: reset: moving to HEAD
+1137036 HEAD@{9}: reset: moving to HEAD
+1137036 HEAD@{10}: commit: commit three
+7797544 HEAD@{11}: commit: commit two
+48dd1dc HEAD@{12}: commit: commit one
+27a43e8 (origin/branch2, branch2) HEAD@{13}: checkout: moving from branchforStash to branchforStash
+27a43e8 (origin/branch2, branch2) HEAD@{14}: checkout: moving from branchforStash to branchforStash
+27a43e8 (origin/branch2, branch2) HEAD@{15}: checkout: moving from branch2 to branchforStash
+27a43e8 (origin/branch2, branch2) HEAD@{16}: commit: branch2 commit
+c889dee (origin/Samplebranch, Samplebranch) HEAD@{17}: checkout: moving from main to branch2
+c889dee (origin/Samplebranch, Samplebranch) HEAD@{18}: Branch: renamed refs/heads/master to refs/heads/main
+c889dee (origin/Samplebranch, Samplebranch) HEAD@{20}: commit (initial): Demo Commit
+
+2.git log -- shows the history of everything that happen to the remote repository
+--> commit 759250f601dd357c9c13fdf16ba75652aaafc648 (HEAD -> main, origin/main)
+Merge: 4e49b19 2a509b7
+Author: unknown <kirankumarwork1@gmail.com>
+Date:   Thu Nov 3 14:07:38 2022 +0530
+
+    Merge branch 'main' of https://github.com/kirankumarramola/Task
+    i
+
+commit 4e49b199bd9c958f3d130a01ed5c74520289989f
+Author: kirankumarramola <117277879+kirankumarramola@users.noreply.github.com>
+Date:   Thu Nov 3 12:48:27 2022 +0530
+
+    Create README.md
+
+commit 2a509b784aed2296dc07bbbe0371702fa044b1c4
+Merge: c802314 27a43e8
+Author: kirankumarramola <117277879+kirankumarramola@users.noreply.github.com>
+Date:   Thu Nov 3 13:00:33 2022 +0530
+
+    Merge pull request #1 from kirankumarramola/branch2
+
+    branch2 commit
+
+commit 27a43e866db52cdc7005a279d6fa3bbfb5dc3789 (origin/branch2, branch2)
+Author: unknown <kirankumarwork1@gmail.com>
+Date:   Thu Nov 3 12:58:20 2022 +0530
+
+    branch2 commit
+
+commit c802314e364b0cc2e3dbeef5dfd641778c031c51
+Author: kirankumarramola <117277879+kirankumarramola@users.noreply.github.com>
+Date:   Thu Nov 3 12:48:27 2022 +0530
+
+    Create README.md
+
+commit c889dee02e61bb6e5139b0695f8a96042f583170 (origin/Samplebranch, Samplebranch)
+Author: unknown <kirankumarwork1@gmail.com>
+Date:   Thu Nov 3 12:32:13 2022 +0530
+
+    Demo Commit
+
+
